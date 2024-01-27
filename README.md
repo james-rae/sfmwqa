@@ -1,48 +1,12 @@
-# Solforge - Mimicwurm Edition
+# Mimicwurm QA
 
-A homebrew attempt at recreating classic [Solforge](https://en.wikipedia.org/wiki/SolForge).
+This is a QA clone of [this repo](https://github.com/grousewood-games/solforge). Go there if you want to play the latest release.
 
-- [Play the Game](https://grousewood-games.github.io/solforge/play/)
-- [How to Play](https://grousewood-games.github.io/solforge/docs/rules)
-- Additional [Info and FAQ](https://grousewood-games.github.io/solforge/docs/faq)
-
-## Current Release
-
-### (Forge Guardian) Beta
-
-- :flower_playing_cards: All the cards freely available. All 703 of 'em!
-- :medal_military: Constructed and Draft modes.
-- :robot: Battle vs the somewhat improved AI.
-- :wrestling: Local head-to-head battle.
-- :clown_face: Fun bonus modes.
-- :crocodile: Unfriendly deckbuilder.
-- :desktop_computer: Best played on a desktop monitor with standard resolution (1080p non-retina) and a pointer device.
-- :iphone: Tablet / retina _works_ but has some issues at the moment.
-  - Tablet screen dimensions can be a poor fit for the layout.
-  - Touch controls to view card details are sub-par.
-  - Feel free to log issues with your bad experiences; I'm limited with what devices I can test on.
-
-### Data Footprint
-
-The core application (game logic, backgrounds, UI elements) will weigh in around 12mb. Each card level will draw around 70kb. If an enthusiastic player views every level of every card, the total download will be around 142mb.
-
-Turning off the `Big Cards` option will shave 7mb off the core app, and 93mb from all the cards (an average of 50kb per card level). You won't see the art in full glory, but it will be respectful to your data plan.
-
-## Parental Guide
-
-### Violence
-
-The game has implied fantasy violence and death ("doing battle", "inflicting damage", creatures "being destroyed"). Visually the cards just bump against each other. Some card art may depict violence in still form (e.g. creatures burning, inflicted with poison, having wounds).
-
-### Nudity
-
-The game artwork can contain scantily clad creatures of varying species and genders. I don't believe you can see any naughty bits in the raw, nor are there any depictions of naughty acts.
-
-### Scary Stuff
-
-The game art contains scary monsters. Very scary. Look out!
+[Testin' Link](https://james-rae.github.io/sfmwqa/play/)
 
 ## Legal Stuff
+
+_repeated just incase anyone gets clever_
 
 I've looked at the various licenses on github but I don't read lawyer well. My code is open, do with it as you please. Giving credit would be appreciated but I won't go to war over it.
 
