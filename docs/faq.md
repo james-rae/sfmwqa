@@ -10,14 +10,16 @@
 
 ## Credits
 
-### Assets
+### Assets & Concepts
 
 - All game rules, card art, card names & text, dog bark battle sound, and the vast majority of the UI art assets is the creation and intellectual property of [Stoneblade Entertainment](https://stoneblade.com/).
 - The fancy font, `Cinzel`, was created by [Natanael Gama](https://fonts.adobe.com/designers/natanael-gama).
 - The green arrows were made by `AngryMeteor`.
-- The rank orb is by [Cethiel](https://opengameart.org/content/orbs-collection)
+- The rank orb and animations for card leveling, overload, battle damage, rankup are by [Cethiel](https://opengameart.org/users/cethiel).
+- The player damge animation is by [Sinestesia](https://opengameart.org/users/sinestesia).
 - Square icons generated on [Game-Icons](https://game-icons.net).
 - Enhanced versions of the large card frames are courtesty of [Spruce](https://reddit.com/user/SolSpruce/).
+- `OffscreenCanvas` polyfill written by [Laurin Quast](https://gist.github.com/n1ru4l).
 
 ### Gratitude
 
@@ -77,9 +79,7 @@ Perhaps when I am "finished". Right now only the minified build will be public, 
 
 ### Will You Implement Online Play?
 
-Unlikely. Originally I focused on single player as I did not have permission to make this public (July 2022). When it was revealed that this type of thing would be allowed (April 2023), it became an option. I had some hesitation due to the effort level and the likely scenario that [nobody would play it for long](https://www.reddit.com/r/SolForge/comments/tiv839/what_would_it_take_to_get_you_to_play/). Shortly after (May 2023), Kaelari announced he was ressurecting his own effort. He is the people's champion of Solforge (a title well earned through colossal efforts over years; I enjoyed many a tourny on `solforgeladder.com`), and his server kung-fu is better than mine. Competing with him seems a questionable time investment; there are a number of other projects I'm itching to get to.
-
-Here is a post containing links to play the current version of [KaelForge](https://www.reddit.com/r/SolForge/comments/13uukrm/kaelforge_set_1_and_15_done_you_can_play_solforge/).
+Unlikely. Originally I focused on single player as I did not have permission to make this public (July 2022). When it was revealed that this type of thing would be allowed (April 2023), it became an option. I had some hesitation due to the effort level and the likely scenario that [nobody would play it for long](https://www.reddit.com/r/SolForge/comments/tiv839/what_would_it_take_to_get_you_to_play/). Shortly after (May 2023), Kaelari announced he was ressurecting his own effort, now named [KaelForge](#what-is-kaelforge). He is the people's champion of Solforge (a title well earned through colossal efforts over years; I enjoyed many a tourny on `solforgeladder.com`), and his server kung-fu is better than mine. Competing with him seems a questionable time investment; there are a number of other projects I'm itching to get to.
 
 ### Does This Work On A Touchscreen Tablet?
 
@@ -112,6 +112,15 @@ You can. I make no promises that it will get get done, but no harm in asking.  P
 ### You Call That A Deckbuilder?
 
 Yeah it's nasty. I just wanted something that would let people brew a deck. Making a proper builder with filters and such is going to take a minute.
+
+### What is KaelForge?
+
+KaelForge is the other free fan-made implementation of the original Solforge. Written in Unity, it has a server component that enables online matches against other real-life players. There are other benefits, including having an account with saved deck lists, a proper draft pool algo and tourney system, and the choice to run a dedicated app instead of a browser app.
+
+- Sets 1 to 3 (as of January 2024).
+- Implements the "final" version of cards, so a slightly different experience than Mimicwurm.
+- [Play right now](https://kaelari.tech/KF) in a browser. Mobile browsers are not supported.
+- Join the [Discord Server](https://discord.gg/gnmGj9R) to chat, find opponents, and find links to the latest Windows download.
 
 ## Game Differences
 
@@ -158,6 +167,14 @@ Rules around extra battles are slightly different. The new general rule is the f
   - In this version, `Master of Elements` would battle one time after `Call the Lightning` was cast.
 
 Regarding `Vaerus, Herald of Fury`, a creature receives the extra battle as one would expect (start of turn, Vaerus enters field, or new creature enters field). However, if Vaerus dies prior to the battle being used, the creature retains the extra battle.
+
+### Surviving Damage Effects
+
+`Alyssa, Strifeborn` and `Dozer, the Dormant` will not function perfectly when hit with a barrage of damage that lowers their health to zero. These scenarios are rare but possible. As an example, `Pyre Song` can deal cumulative damage from each creature. In theory, Alyssa should survive and boost off each hit, and Dozer should replace on the first damage. The trigger that reacts to the damage will not activate until the following batch, so if the health is below 1, the creature will be death-checked before that batch can begin.
+
+Other culprits can include arrangements of `Flamebreak Invokers`, `Cauldron Mystics`, `Ignurs`, or `Nug, Fury Fists`.
+
+`Dream Tree` works as expected since the effect does not influence the creature (so it's irrelevant if later damage killed it).
 
 ### Ator, Thunder Titan
 
@@ -210,7 +227,7 @@ The original game had a left-to-right rule precedence. From Ximane's advanced ru
 
 > If a `Shardplate Behemoth` is to the left of an `Alloyin General`, its ability first makes its attack equal to its health, then the General's ability boosts its attack, which gives it 2 more attack than health. If the Behemoth is on the right of the General, the General boosts its attack, and then its attack is set to its health, effectively negating the General's ability.
 
-In this edition, Behemoth's card rule trumps all. The attack will always equal the health. However, if attack buffs are applied to the Behemoth, and then it has abilities removed (e.g., `Wipe Clean` is cast), the buff will remain. So if `Lysian Shard` is cast on a Behemoth, then it is wiped, the resulting dino will have 6 attack, not 0.
+In this edition, Behemoth's card rule trumps all. The attack will always equal the health. However, if permanent attack buffs are applied to the Behemoth, and then it has abilities removed (e.g., `Wipe Clean` is cast), the buff will remain. So if `Lysian Shard` is cast on a Behemoth, then it is wiped, the resulting dino will have 6 attack, not 0.
 
 ### Voltaic Prophet
 
